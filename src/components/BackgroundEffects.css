@@ -1,0 +1,247 @@
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Animated wave layer */
+.wave-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(
+            ellipse at 15% 20%,
+            rgba(255, 255, 255, 0.03) 0%,
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 85% 80%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 50%
+        ),
+        linear-gradient(
+            45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.02) 45%,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(255, 255, 255, 0.02) 55%,
+            transparent 70%
+        );
+    animation: subtleWave 12s ease-in-out infinite reverse;
+}
+
+@keyframes subtleWave {
+    0%,
+    100% {
+        transform: translateY(0px) scale(1) rotate(0deg);
+        opacity: 0.8;
+    }
+    33% {
+        transform: translateY(-30px) scale(1.05) rotate(1deg);
+        opacity: 0.6;
+    }
+    66% {
+        transform: translateY(20px) scale(0.95) rotate(-1deg);
+        opacity: 1;
+    }
+}
+
+/* Subtle orange accent lines */
+.accent-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 107, 53, 0.3) 20%,
+        rgba(255, 140, 66, 0.5) 50%,
+        rgba(255, 107, 53, 0.3) 80%,
+        transparent 100%
+    );
+    animation: accentFlow 8s ease-in-out infinite;
+}
+
+.accent-line-1 {
+    top: 20%;
+    width: 300px;
+    left: -300px;
+    animation-delay: 0s;
+}
+
+.accent-line-2 {
+    top: 60%;
+    width: 400px;
+    left: -400px;
+    animation-delay: 2s;
+}
+
+.accent-line-3 {
+    top: 80%;
+    width: 250px;
+    left: -250px;
+    animation-delay: 4s;
+}
+
+@keyframes accentFlow {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateX(50vw) translateY(-20px);
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateX(100vw) translateY(-40px);
+        opacity: 0;
+    }
+}
+
+/* Minimal ambient particles */
+.ambient-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 107, 53, 0.6);
+    border-radius: 50%;
+    animation: particleFloat 15s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.4);
+}
+
+.ambient-particle:nth-child(4) {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+.ambient-particle:nth-child(5) {
+    top: 40%;
+    left: 70%;
+    animation-delay: 3s;
+    animation-duration: 18s;
+}
+
+.ambient-particle:nth-child(6) {
+    top: 70%;
+    left: 25%;
+    animation-delay: 6s;
+    animation-duration: 14s;
+}
+
+.ambient-particle:nth-child(7) {
+    top: 60%;
+    left: 80%;
+    animation-delay: 9s;
+    animation-duration: 16s;
+}
+
+@keyframes particleFloat {
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translateY(-30px) translateX(20px) scale(1.2);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-10px) translateX(-15px) scale(0.8);
+        opacity: 0.6;
+    }
+    75% {
+        transform: translateY(-40px) translateX(10px) scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* Subtle network glow - reduced */
+.network-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: radial-gradient(
+        ellipse at 50% 100%,
+        rgba(255, 107, 53, 0.02) 0%,
+        rgba(255, 107, 53, 0.01) 30%,
+        transparent 60%
+    );
+    animation: networkPulse 8s ease-in-out infinite;
+}
+
+@keyframes networkPulse {
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+/* Cursor-following subtle overlay */
+.cursor-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .accent-line {
+        height: 0.5px;
+    }
+
+    .accent-line-1,
+    .accent-line-2,
+    .accent-line-3 {
+        width: 200px;
+        left: -200px;
+    }
+
+    .ambient-particle {
+        width: 2px;
+        height: 2px;
+    }
+
+    .cursor-gradient-overlay {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .wave-layer {
+        opacity: 0.5;
+    }
+
+    .network-glow {
+        opacity: 0.3;
+    }
+
+    .accent-line {
+        display: none;
+    }
+}

@@ -1,0 +1,192 @@
+.App {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #0a0a0a 0%,
+        #1a1a1a 20%,
+        #2a1a0f 35%,
+        #1a0f0a 50%,
+        #0f0f0f 65%,
+        #1a1a1a 80%,
+        #000000 100%
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+/* Orange stripes overlay */
+.App::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 80px,
+        rgba(255, 107, 53, 0.08) 82px,
+        rgba(255, 107, 53, 0.12) 84px,
+        transparent 86px,
+        transparent 160px,
+        rgba(255, 140, 66, 0.06) 162px,
+        rgba(255, 140, 66, 0.1) 164px,
+        transparent 166px
+    );
+    pointer-events: none;
+    animation: stripeShift 20s linear infinite;
+}
+
+/* Animated white gradient wave */
+.App::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.08) 15%,
+        transparent 25%,
+        transparent 40%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 60%,
+        transparent 75%,
+        rgba(255, 255, 255, 0.12) 85%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+    pointer-events: none;
+    animation: waveFlow 8s ease-in-out infinite;
+    mask:
+        radial-gradient(ellipse at 20% 30%, black 20%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, black 30%, transparent 70%),
+        linear-gradient(135deg, black 0%, transparent 50%, black 100%);
+    mask-composite: intersect;
+}
+
+@keyframes stripeShift {
+    0% {
+        transform: translateX(-100px) translateY(-50px);
+    }
+    100% {
+        transform: translateX(100px) translateY(50px);
+    }
+}
+
+@keyframes waveFlow {
+    0% {
+        transform: translateX(-50%) translateY(-20%) rotate(-5deg) scale(0.8);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateX(-20%) translateY(10%) rotate(2deg) scale(1.1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateX(20%) translateY(-5%) rotate(-2deg) scale(1);
+        opacity: 1;
+    }
+    75% {
+        transform: translateX(50%) translateY(15%) rotate(3deg) scale(0.9);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateX(80%) translateY(-10%) rotate(-1deg) scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+/* Additional subtle wave effects */
+.App .wave-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(
+            ellipse at 15% 20%,
+            rgba(255, 255, 255, 0.03) 0%,
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 85% 80%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 50%
+        ),
+        linear-gradient(
+            45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.02) 45%,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(255, 255, 255, 0.02) 55%,
+            transparent 70%
+        );
+    pointer-events: none;
+    animation: subtleWave 12s ease-in-out infinite reverse;
+}
+
+@keyframes subtleWave {
+    0%,
+    100% {
+        transform: translateY(0px) scale(1) rotate(0deg);
+        opacity: 0.8;
+    }
+    33% {
+        transform: translateY(-30px) scale(1.05) rotate(1deg);
+        opacity: 0.6;
+    }
+    66% {
+        transform: translateY(20px) scale(0.95) rotate(-1deg);
+        opacity: 1;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(26, 26, 26, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff6600;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff8533;
+}
+
+/* Global text selection */
+::selection {
+    background: rgba(255, 102, 0, 0.3);
+    color: white;
+}
+
+::-moz-selection {
+    background: rgba(255, 102, 0, 0.3);
+    color: white;
+}
+
+/* Smooth transitions for all elements */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}

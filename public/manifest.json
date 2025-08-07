@@ -1,0 +1,21 @@
+{
+  "short_name": "Recognito",
+  "name": "Recognito - Web3 Security Platform",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "logo192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ff6b35",
+  "background_color": "#ffffff",
+  "description": "Built for a secure Web3 future"
+}

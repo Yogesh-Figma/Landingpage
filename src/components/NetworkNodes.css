@@ -1,0 +1,391 @@
+.network-nodes {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    z-index: 10;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.network-lines {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.network-lines line {
+    stroke-dasharray: 6, 8;
+    animation: dash 6s linear infinite;
+    filter: drop-shadow(0 0 4px rgba(255, 102, 0, 0.6));
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -28;
+    }
+}
+
+.node {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    z-index: 2;
+    animation: nodeFloat 4s ease-in-out infinite;
+}
+
+.node:nth-child(2) {
+    animation-delay: 0.5s;
+}
+.node:nth-child(3) {
+    animation-delay: 1s;
+}
+.node:nth-child(4) {
+    animation-delay: 1.5s;
+}
+.node:nth-child(5) {
+    animation-delay: 2s;
+}
+.node:nth-child(6) {
+    animation-delay: 2.5s;
+}
+.node:nth-child(7) {
+    animation-delay: 3s;
+}
+
+@keyframes nodeFloat {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.node-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff6600;
+    box-shadow:
+        0 0 15px rgba(255, 102, 0, 1),
+        0 0 30px rgba(255, 102, 0, 0.5);
+    animation: nodePulse 3s ease-in-out infinite;
+    position: relative;
+}
+
+.node-dot::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+@keyframes nodePulse {
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 15px rgba(255, 102, 0, 1),
+            0 0 30px rgba(255, 102, 0, 0.5);
+    }
+    50% {
+        transform: scale(1.4);
+        box-shadow:
+            0 0 25px rgba(255, 102, 0, 1),
+            0 0 50px rgba(255, 102, 0, 0.8);
+    }
+}
+
+.node-label {
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 102, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+/* Central large logo matching the design exactly */
+.central-logo {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    animation: logoFloat 5s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0px);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-12px);
+    }
+}
+
+.logo-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-outer-ring {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        #ff8c42 0%,
+        #ff6b35 40%,
+        #e55a2b 70%,
+        #1a1a1a 100%
+    );
+    box-shadow:
+        0 0 40px rgba(255, 107, 53, 0.8),
+        0 0 80px rgba(255, 107, 53, 0.4),
+        inset 0 0 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: logoGlow 4s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-inner-gradient {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 40% 40%,
+        rgba(255, 215, 0, 0.9) 0%,
+        rgba(255, 140, 66, 0.8) 30%,
+        rgba(255, 107, 53, 0.6) 60%,
+        transparent 100%
+    );
+    position: absolute;
+    animation: innerGlow 3s ease-in-out infinite;
+}
+
+.logo-center-hole {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 60% 30%,
+        #2a2a2a 0%,
+        #1a1a1a 70%,
+        #000000 100%
+    );
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 0, 0, 0.5);
+    position: absolute;
+}
+
+/* Add subtle highlight for 3D effect */
+.logo-outer-ring::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    width: 50%;
+    height: 30%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    filter: blur(15px);
+    pointer-events: none;
+}
+
+@keyframes logoGlow {
+    0%,
+    100% {
+        box-shadow:
+            0 0 40px rgba(255, 107, 53, 0.8),
+            0 0 80px rgba(255, 107, 53, 0.4),
+            inset 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow:
+            0 0 60px rgba(255, 107, 53, 1),
+            0 0 120px rgba(255, 107, 53, 0.6),
+            inset 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes innerGlow {
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Floating geometric elements */
+.floating-element {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 102, 0, 0.6);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+}
+
+.element-1 {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.element-2 {
+    top: 40%;
+    left: 25%;
+    animation-delay: 1s;
+}
+
+.element-3 {
+    top: 60%;
+    left: 35%;
+    animation-delay: 2s;
+}
+
+.element-4 {
+    top: 30%;
+    right: 20%;
+    animation-delay: 3s;
+}
+
+.element-5 {
+    top: 50%;
+    right: 30%;
+    animation-delay: 4s;
+}
+
+.element-6 {
+    top: 70%;
+    right: 15%;
+    animation-delay: 5s;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px) scale(0.8);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translateY(-30px) scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .network-nodes {
+        height: 40vh;
+    }
+
+    .logo-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .logo-outer-ring {
+        width: 120px;
+        height: 120px;
+    }
+
+    .logo-inner-gradient {
+        width: 75px;
+        height: 75px;
+    }
+
+    .logo-center-hole {
+        width: 45px;
+        height: 45px;
+    }
+
+    .node-label {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.4rem;
+    }
+
+    .node-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .node-dot::before {
+        width: 3px;
+        height: 3px;
+    }
+
+    .central-logo {
+        bottom: 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    .network-nodes {
+        height: 35vh;
+    }
+
+    .logo-container {
+        width: 100px;
+        height: 100px;
+    }
+
+    .logo-outer-ring {
+        width: 100px;
+        height: 100px;
+    }
+
+    .logo-inner-gradient {
+        width: 60px;
+        height: 60px;
+    }
+
+    .logo-center-hole {
+        width: 35px;
+        height: 35px;
+    }
+
+    .floating-element {
+        width: 4px;
+        height: 4px;
+    }
+}

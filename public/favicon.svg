@@ -1,0 +1,24 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Main circle gradient - orange to darker orange -->
+    <radialGradient id="circleGradient" cx="30%" cy="30%">
+      <stop offset="0%" style="stop-color:#ff8c42;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e55a2b;stop-opacity:1" />
+    </radialGradient>
+
+    <!-- Subtle shadow filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Main circular background -->
+  <circle cx="16" cy="16" r="15" fill="url(#circleGradient)" filter="url(#shadow)"/>
+
+  <!-- Black chevron/arrow pointing right -->
+  <path d="M10 8 L18 16 L10 24 L12 24 L22 16 L12 8 Z" fill="#000000"/>
+
+  <!-- Subtle highlight on top of circle for 3D effect -->
+  <ellipse cx="16" cy="12" rx="12" ry="8" fill="rgba(255,255,255,0.15)" opacity="0.8"/>
+</svg>
