@@ -14,59 +14,6 @@
     overflow: hidden;
 }
 
-/* Orange stripes overlay */
-.App::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 80px,
-        rgba(255, 107, 53, 0.08) 82px,
-        rgba(255, 107, 53, 0.12) 84px,
-        transparent 86px,
-        transparent 160px,
-        rgba(255, 140, 66, 0.06) 162px,
-        rgba(255, 140, 66, 0.1) 164px,
-        transparent 166px
-    );
-    pointer-events: none;
-    animation: stripeShift 20s linear infinite;
-}
-
-/* Animated white gradient wave */
-.App::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.15) 0%,
-        rgba(255, 255, 255, 0.08) 15%,
-        transparent 25%,
-        transparent 40%,
-        rgba(255, 255, 255, 0.05) 50%,
-        transparent 60%,
-        transparent 75%,
-        rgba(255, 255, 255, 0.12) 85%,
-        rgba(255, 255, 255, 0.02) 100%
-    );
-    pointer-events: none;
-    animation: waveFlow 8s ease-in-out infinite;
-    mask:
-        radial-gradient(ellipse at 20% 30%, black 20%, transparent 60%),
-        radial-gradient(ellipse at 80% 70%, black 30%, transparent 70%),
-        linear-gradient(135deg, black 0%, transparent 50%, black 100%);
-    mask-composite: intersect;
-}
-
 @keyframes stripeShift {
     0% {
         transform: translateX(-100px) translateY(-50px);

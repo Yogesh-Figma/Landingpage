@@ -8,25 +8,22 @@ const Hero = () => {
         <div className="hero-content">
           <div className="beta-tag">
             <span className="beta-text">Get early access</span>
-            <span className="web3-text">web3.0 beta</span>
+            <span className="web3-text">BMA App</span>
           </div>
 
           <h1 className="hero-title">
-            <span className="title-line">Meet! Recognito</span>
-            <span className="title-line">
-              Built{" "}
-              for a secure Web3 future.
-            </span>
+            <span className="title-line">BMA</span>
+            <span className="title-line">Empower your team. Streamline your workflow.</span>
           </h1>
 
           <p className="hero-description">
-            Empowering blockchain networks with top-tier validation, RPC, and
-            IBC relayers—built for decentralized scale.
+            BMA streamlines HR, lead management, and task tracking.<br />
+            Boost productivity. Simplify your day.
           </p>
 
           <div className="hero-buttons">
-            <button className="apply-beta-btn">Apply for Beta</button>
-            <button className="learn-more-btn">Learn more</button>
+            <button className="apply-beta-btn">Request a Demo</button>
+            <button className="learn-more-btn">See How It Works</button>
           </div>
         </div>
       </div>

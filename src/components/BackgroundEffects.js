@@ -32,7 +32,9 @@ const BackgroundEffects = () => {
       <div className="ambient-particle"></div>
 
       {/* Subtle network glow - reduced */}
-      <div className="network-glow"></div>
+      <div className="cta-bottom-container">
+        <button className="cta-bottom-btn">Contact Us</button>
+      </div>
 
       {/* Cursor-following subtle overlay */}
       <div

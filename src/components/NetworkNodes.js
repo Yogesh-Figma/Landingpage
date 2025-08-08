@@ -87,42 +87,32 @@ const NetworkNodes = () => {
       {/* Network nodes with exact positioning from design */}
       <div className="node secured" style={{ left: "12%", bottom: "8%" }}>
         <div className="node-dot"></div>
-        <span className="node-label">Secured</span>
+        <span className="node-label">HR Automation</span>
       </div>
 
       <div className="node encrypted" style={{ left: "40%", bottom: "32%" }}>
         <div className="node-dot"></div>
-        <span className="node-label">Encrypted</span>
+        <span className="node-label">Lead Management</span>
       </div>
 
       <div className="node light-speed" style={{ left: "35%", bottom: "15%" }}>
         <div className="node-dot"></div>
-        <span className="node-label">Light Speed</span>
+        <span className="node-label">Task Tracking</span>
       </div>
 
       <div className="node center-hub" style={{ left: "60%", bottom: "26%" }}>
         <div className="node-dot"></div>
-        <span className="node-label">Center HUB</span>
+        <span className="node-label">Productivity Hub</span>
       </div>
 
       <div className="node local-hub" style={{ left: "75%", bottom: "45%" }}>
         <div className="node-dot"></div>
-        <span className="node-label">Local HUB</span>
+        <span className="node-label">Workflow</span>
       </div>
 
       <div className="node system" style={{ left: "85%", bottom: "12%" }}>
         <div className="node-dot"></div>
-        <span className="node-label">System</span>
-      </div>
-
-      {/* Central large logo matching the design */}
-      <div className="central-logo">
-        <div className="logo-container">
-          <div className="logo-outer-ring">
-            <div className="logo-inner-gradient"></div>
-            <div className="logo-center-hole"></div>
-          </div>
-        </div>
+        <span className="node-label">Efficiency</span>
       </div>
 
       {/* Floating geometric elements */}
